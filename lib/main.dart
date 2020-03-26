@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
                 Tab(icon: Icon(Icons.directions_car)),
                 Tab(icon: Icon(Icons.directions_transit)),
                 Tab(icon: Icon(Icons.directions_bike)),
-                Tab(icon: Icon(Icons.directions_bike)),
+                Tab(icon: Icon(Icons.directions_walk)),
               ],
             ),
             title: Text('Flutter ARKit Example'),
