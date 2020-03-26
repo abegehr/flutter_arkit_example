@@ -1,32 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:arkit_plugin/arkit_plugin.dart';
-import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter_arkit_example/pages/custom_animation.dart';
+import 'package:flutter_arkit_example/pages/face_detection.dart';
+import 'package:flutter_arkit_example/pages/simplest_code.dart';
+import 'package:flutter_arkit_example/pages/widget_projection.dart';
 
-void main() => runApp(MaterialApp(home: MyApp()));
-
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
+void main() {
+  runApp(MyApp());
 }
 
-class _MyAppState extends State<MyApp> {
-  ARKitController arkitController;
-
+class MyApp extends StatelessWidget {
   @override
-  void dispose() {
-    arkitController?.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) => Scaffold(
-      appBar: AppBar(title: const Text('ARKit in Flutter')),
-      body: ARKitSceneView(onARKitViewCreated: onARKitViewCreated));
-
-  void onARKitViewCreated(ARKitController arkitController) {
-    this.arkitController = arkitController;
-    final node = ARKitNode(
-        geometry: ARKitSphere(radius: 0.1), position: Vector3(0, 0, -0.5));
-    this.arkitController.add(node);
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            bottom: TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.directions_car)),
+                Tab(icon: Icon(Icons.directions_transit)),
+                Tab(icon: Icon(Icons.directions_bike)),
+                Tab(icon: Icon(Icons.directions_bike)),
+              ],
+            ),
+            title: Text('Flutter ARKit Example'),
+          ),
+          body: TabBarView(
+            children: [
+              SimplestCodePage(),
+              FaceDetectionPage(),
+              CustomAnimationPage(),
+              WidgetProjectionPage(),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
