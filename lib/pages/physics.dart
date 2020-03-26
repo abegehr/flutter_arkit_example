@@ -58,7 +58,7 @@ class _PhysicsPageState extends State<PhysicsPage> {
       geometry: plane,
       physicsBody: ARKitPhysicsBody(
         ARKitPhysicsBodyType.staticType,
-        shape: ARKitPhysicsShape(plane),
+        shape: ARKitPhysicsShape.fromGeometry(plane),
         categoryBitMask: BodyType.plane.index + 1,
       ),
       rotation: vector.Vector4(1, 0, 0, -math.pi / 2),
