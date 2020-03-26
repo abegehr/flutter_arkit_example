@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_arkit_example/pages/custom_animation.dart';
 import 'package:flutter_arkit_example/pages/face_detection.dart';
+import 'package:flutter_arkit_example/pages/physics.dart';
 import 'package:flutter_arkit_example/pages/simplest_code.dart';
 import 'package:flutter_arkit_example/pages/widget_projection.dart';
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: DefaultTabController(
-        length: 4,
+        length: 5,
         child: Scaffold(
           appBar: AppBar(
             bottom: TabBar(
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
                 Tab(icon: Icon(Icons.directions_transit)),
                 Tab(icon: Icon(Icons.directions_bike)),
                 Tab(icon: Icon(Icons.directions_walk)),
+                Tab(icon: Icon(Icons.directions_run)),
               ],
             ),
             title: Text('Flutter ARKit Example'),
@@ -32,6 +34,7 @@ class MyApp extends StatelessWidget {
               FaceDetectionPage(),
               CustomAnimationPage(),
               WidgetProjectionPage(),
+              PhysicsPage(),
             ],
           ),
         ),
